@@ -10,6 +10,9 @@ of thoughts kind of a document where I add information as I progress with the ex
 only want to find out what the result it, scroll all the way below and if there is a resolution,
 you'll find it there.
 
-- [ ] Create a GitHub Pages hosted static site
+You can find the GitHub Pages hosted static site of this repository at this link:
+
+https://tomashubelbauer.github.io/github-serverless-app/
+
 - [ ] Submit the application to GitHub Marketplace
 - [ ] Try to wire up OAuth using a client only flow
