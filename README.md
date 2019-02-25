@@ -81,3 +81,10 @@ There is no risk of exposing the ID as the application is only accessible to me.
 Alternatively, a combination of ID and secret might be an usable alternative:
 
 https://developer.github.com/v3/#oauth2-keysecret
+
+Surprisingly, this method doesn't appear to work either, but not due to CORS, but instead
+it reports "authorization required" even with the `client_id` and `client_secret` params
+included. Maybe it is locked to server to server calls only, which would be understandable,
+but unfortunate seeing as I can't make the code exchange one work.
+
+I have contacted GitHub support with a request for assistence.
