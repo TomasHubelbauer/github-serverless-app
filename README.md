@@ -39,3 +39,41 @@ access to the GitHub API without constant reauthorization.
 
 In the draft of the application files prepared in this repository, I will try to prototype
 using the PAT authorization and remembering the user's session.
+
+The application needs to be registered first at:
+
+https://github.com/settings/applications/new
+
+In order to obtain a `client_id`. This one's `client_id` is `a215a59b08486dd4079b`.
+
+The app registration requires a valid callback URL for the authentication flow, which cannot
+be a file URL, but a static file server can be used and `localhost` is allowed. In order to
+test this application locally without having to deploy to GitHub Pages first each time,
+serve it using:
+
+```powershell
+npx serve
+# Set the GitHub application registration a callback URL value of `http://localhost:5000`
+# Use http://localhost:5000 to access the local deployment of the site
+```
+
+The authorization flow involves exchanging a temporary code for an access token based on a
+client ID and a client secret. The client secret should never be leaked, which is impossible
+without a server-to-server call, so in this scenario - since I will be the only one using this
+application - I am going to keep the client secret in the local storage of the machines where
+I will be using the application and will not be including it in the application's deployment.
+
+In a scenario where the application was supposed to be used by other users, an OAuth server
+component to carry out the flow using S2S communication would have been required.
+
+I hit a problem when calling `POST https://github.com/login/oauth/access_token` whereby a
+CORS error prevents my client code from making that call. The following SO answer:
+
+https://stackoverflow.com/a/14709863/2715716
+
+From a GitHub support specialist implies a solution, which I have attempted (renamed all
+the fields to the localhost application URL) to no avail. I am guessing the localhost URL
+might be an issue so I will try again with the GitHub Pages URL.
+
+The OAuth application URL: https://github.com/settings/applications/993810
+There is no risk of exposing the ID as the application is only accessible to me.
