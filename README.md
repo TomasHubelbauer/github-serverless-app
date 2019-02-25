@@ -77,3 +77,7 @@ might be an issue so I will try again with the GitHub Pages URL.
 
 The OAuth application URL: https://github.com/settings/applications/993810
 There is no risk of exposing the ID as the application is only accessible to me.
+
+Alternatively, a combination of ID and secret might be an usable alternative:
+
+https://developer.github.com/v3/#oauth2-keysecret
